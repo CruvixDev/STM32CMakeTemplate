@@ -23,6 +23,5 @@
 int main(void)
 {
 	while (true) {
-        HAL_Delay(1000);
     }
 }
