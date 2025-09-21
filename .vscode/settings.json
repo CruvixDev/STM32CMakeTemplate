@@ -1,0 +1,13 @@
+{
+    "clangd.arguments": [],
+    "files.associations": {
+        "stm32h7xx_hal.h": "c",
+        "stm32h7xx_hal_conf.h": "c",
+        "stm32h7xx_hal_rcc.h": "c",
+        "stm32h7xx_hal_def.h": "c",
+        "stm32h7xx_hal_adc.h": "c",
+        "stm32h7xx.h": "c",
+        "errno.h": "c",
+        "stm32h723xx.h": "c"
+    }
+}

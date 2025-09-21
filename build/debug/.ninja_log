@@ -1,0 +1,9 @@
+# ninja log v5
+192	896	7801660198618733	CMakeFiles/Template_STM32_CMake_Project.dir/Startup/startup_stm32h723zgtx.s.obj	1bed448280ad449f
+47	789	7801674696609695	CMakeFiles/Template_STM32_CMake_Project.dir/Src/syscall.c.obj	568e391765a63f4c
+9	1540	7801660206407200	CMakeFiles/Template_STM32_CMake_Project.dir/Src/main.c.obj	cb11e714afb5a849
+120	720	7801674695777499	CMakeFiles/Template_STM32_CMake_Project.dir/Src/sysmem.c.obj	3a86354a38614247
+1256	1938	7801643558987464	Template_STM32_CMake_Project.elf	8771715b7f935a35
+94	435	7801675400381765	CMakeFiles/Template_STM32_CMake_Project.dir/Src/sysmem.c.obj	215f4a09b454a5b
+49	556	7801675401631759	CMakeFiles/Template_STM32_CMake_Project.dir/Src/syscall.c.obj	b42dd87690b4a183
+7	1129	7801675407368530	CMakeFiles/Template_STM32_CMake_Project.dir/Src/main.c.obj	cb11e714afb5a849
