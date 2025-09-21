@@ -43,6 +43,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
+    # Enable the specific STM32 model in stm32xxxx.h
     ${STM32_MODEL}
 
     # Choose HAL or LL drivers by commenting/uncommenting the following lines
