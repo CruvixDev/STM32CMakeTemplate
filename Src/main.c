@@ -22,6 +22,9 @@
 
 int main(void)
 {
+    HAL_Init();
+
 	while (true) {
+        HAL_Delay(1000);
     }
 }

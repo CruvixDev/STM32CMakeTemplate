@@ -12,20 +12,26 @@ set(cpu_PARAMS ${cpu_PARAMS}
 
 # Linker script
 set(linker_script_SRC ${linker_script_SRC}
-    ${CMAKE_CURRENT_SOURCE_DIR}/stm32h723zgtx_FLASH.ld
+    ${CMAKE_CURRENT_SOURCE_DIR}/startup/stm32h723zgtx_FLASH.ld
 )
 
 # Sources
 set(sources_SRCS ${sources_SRCS}
-	${CMAKE_CURRENT_SOURCE_DIR}/Src/main.c
-	${CMAKE_CURRENT_SOURCE_DIR}/Src/syscall.c
-	${CMAKE_CURRENT_SOURCE_DIR}/Src/sysmem.c
-	${CMAKE_CURRENT_SOURCE_DIR}/Startup/startup_stm32h723zgtx.s
+	${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
+	${CMAKE_CURRENT_SOURCE_DIR}/src/syscall.c
+	${CMAKE_CURRENT_SOURCE_DIR}/src/sysmem.c
+	${CMAKE_CURRENT_SOURCE_DIR}/startup/startup_stm32h723zgtx.s
+
+    # Add HAL source files
+    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Source/Templates/system_stm32h7xx.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_hal_cortex.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_hal_rcc.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_hal.c
 )
 
 # Include directories
 set(include_c_DIRS ${include_c_DIRS}
-	${CMAKE_CURRENT_SOURCE_DIR}/Inc
+	${CMAKE_CURRENT_SOURCE_DIR}/inc
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/CMSIS/CMSIS/Core/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Inc
