@@ -17,6 +17,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
+# User must set the STM32 model here
 set(STM32_MODEL "STM32H723xx")
 message("STM32 Model: " ${STM32_MODEL})
 
