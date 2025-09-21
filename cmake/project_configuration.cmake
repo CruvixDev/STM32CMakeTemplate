@@ -21,12 +21,10 @@ set(sources_SRCS ${sources_SRCS}
 	${CMAKE_CURRENT_SOURCE_DIR}/src/syscall.c
 	${CMAKE_CURRENT_SOURCE_DIR}/src/sysmem.c
 	${CMAKE_CURRENT_SOURCE_DIR}/startup/startup_stm32h723zgtx.s
-
-    # Add HAL source files
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Source/Templates/system_stm32h7xx.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_hal_cortex.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_hal_rcc.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_hal.c
+
+    # Add HAL/LL source files
+    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Src/stm32h7xx_ll_utils.c
 )
 
 # Include directories

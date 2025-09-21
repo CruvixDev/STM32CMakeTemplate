@@ -17,8 +17,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
-set(STM32_FAMILY "H7")
 set(STM32_MODEL "STM32H723xx")
+message("STM32 Model: " ${STM32_MODEL})
 
 # CMake script to add project specific configuration
 # (sources, includes, symbols, linker script, options)
@@ -44,7 +44,11 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     ${STM32_MODEL}
+
+    # Choose HAL or LL drivers by commenting/uncommenting the following lines
     USE_HAL_DRIVER
+    USE_FULL_LL_DRIVER
+
     $<$<COMPILE_LANGUAGE:C>: ${symbols_c_SYMB}>
     $<$<COMPILE_LANGUAGE:CXX>: ${symbols_cxx_SYMB}>
     $<$<COMPILE_LANGUAGE:ASM>: ${symbols_asm_SYMB}>

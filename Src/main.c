@@ -18,13 +18,11 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "stm32h7xx_hal.h"
+#include "stm32h7xx_ll_utils.h"
 
 int main(void)
 {
-    HAL_Init();
-
 	while (true) {
-        HAL_Delay(1000);
+        LL_mDelay(1000);
     }
 }
