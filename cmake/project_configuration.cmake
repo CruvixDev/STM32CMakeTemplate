@@ -17,9 +17,9 @@ set(linker_script_SRC ${linker_script_SRC}
 
 # Sources
 set(sources_SRCS ${sources_SRCS}
-	${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-	${CMAKE_CURRENT_SOURCE_DIR}/src/syscall.c
-	${CMAKE_CURRENT_SOURCE_DIR}/src/sysmem.c
+	${CMAKE_CURRENT_SOURCE_DIR}/src/app/main.c
+	${CMAKE_CURRENT_SOURCE_DIR}/src/system/syscall.c
+	${CMAKE_CURRENT_SOURCE_DIR}/src/system/sysmem.c
 	${CMAKE_CURRENT_SOURCE_DIR}/startup/startup_stm32h723zgtx.s
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Source/Templates/system_stm32h7xx.c
 
@@ -30,6 +30,7 @@ set(sources_SRCS ${sources_SRCS}
 # Include directories
 set(include_c_DIRS ${include_c_DIRS}
 	${CMAKE_CURRENT_SOURCE_DIR}/inc
+    ${CMAKE_CURRENT_SOURCE_DIR}/inc/hal
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/CMSIS/CMSIS/Core/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/stm32h7xx-hal-driver/Inc
