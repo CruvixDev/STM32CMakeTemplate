@@ -5,9 +5,18 @@ message("Build CMAKE_MODULE_PATH: " ${CMAKE_MODULE_PATH})
 include("cmake/gcc-arm-none-eabi.cmake")
 
 # Core project settings
-project(Template_STM32_CMake_Project)
+project(Template_STM32_CMake_Project VERSION 1.0.0)
 enable_language(C CXX ASM)
 message("Build type: " ${CMAKE_BUILD_TYPE})
+
+set(APP_VERSION_MAJOR ${CMAKE_PROJECT_VERSION_MAJOR})
+set(APP_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
+set(APP_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/version.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/version.h
+)
 
 # Setup compiler settings
 set(CMAKE_C_STANDARD 11)
