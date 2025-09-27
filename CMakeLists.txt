@@ -14,8 +14,8 @@ set(APP_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
 set(APP_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 
 configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/version.h.in
-    ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/version.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/app_version.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/app_version.h
 )
 
 # Setup compiler settings

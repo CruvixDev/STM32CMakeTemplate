@@ -15,7 +15,7 @@
 #include "stm32h7xx_ll_utils.h"
 
 /* Associated interfaces -----------------------------------------------------*/
-#include "app/main.h"
+#include "app/app_main.h"
 
 /* Private typedef -----------------------------------------------------------*/
 
