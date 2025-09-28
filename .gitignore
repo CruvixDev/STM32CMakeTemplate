@@ -1,2 +1,3 @@
 /build
 tests/ceedling/build
+startup/*.s
