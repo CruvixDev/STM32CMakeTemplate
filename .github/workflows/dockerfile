@@ -1,0 +1,23 @@
+FROM ubuntu:22.04
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc-arm-none-eabi \
+    binutils-arm-none-eabi \
+    make \
+    cmake \
+    ninja-build \
+    ruby-full \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Ceedling
+RUN gem install ceedling
+
+# Define working directory
+WORKDIR /workspace
+
+# Default command
+CMD ["/bin/bash"]
