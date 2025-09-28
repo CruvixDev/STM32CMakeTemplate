@@ -1,4 +1,7 @@
 ![GitHub release](https://img.shields.io/github/v/release/CruvixDev/STM32CMakeTemplate)
+![Build](https://github.com/cruvixdev/STM32CMakeTemplate/actions/workflows/STM32_CI-CD.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ![image](https://github.com/user-attachments/assets/359f3191-b27c-4982-b950-f91c0b88e8dc)
 
 # STM32H7 template CMake project
