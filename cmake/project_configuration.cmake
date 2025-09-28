@@ -21,7 +21,7 @@ set(sources_SRCS ${sources_SRCS}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app/app_version.c
 	${CMAKE_CURRENT_SOURCE_DIR}/src/system/system_syscall.c
 	${CMAKE_CURRENT_SOURCE_DIR}/src/system/system_sysmem.c
-	${CMAKE_CURRENT_SOURCE_DIR}/startup/startup_stm32h723zgtx.s
+	${CMAKE_CURRENT_SOURCE_DIR}/startup/${STARTUP_FILE}
     ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Source/Templates/system_stm32h7xx.c
 
     # Add HAL/LL source files
