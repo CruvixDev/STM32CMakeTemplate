@@ -13,6 +13,13 @@ set(APP_VERSION_MAJOR ${CMAKE_PROJECT_VERSION_MAJOR})
 set(APP_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
 set(APP_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 
+execute_process(
+    COMMAND git rev-parse --short HEAD
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    OUTPUT_VARIABLE GIT_HASH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/app_version.h.in
     ${CMAKE_CURRENT_SOURCE_DIR}/inc/app/app_version.h
@@ -96,7 +103,7 @@ enable_testing()
 
 # Add Ceedling tests
 add_test(
-  NAME ceedling_all
-  COMMAND ruby -S ceedling test:all
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/ceedling
+    NAME ceedling_all
+    COMMAND ruby -S ceedling test:all
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/ceedling
 )

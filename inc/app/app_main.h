@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * @file           : <file name>
-  * @brief          : <file description>
+  * @file           : app_main.h
+  * @brief          : Main application header file
   * @author         : <author>
   * @date           : <yyyy/MM/dd>
   ******************************************************************************

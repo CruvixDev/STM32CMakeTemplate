@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * @file           : lib_version.h
-  * @brief          : handle the software version in source code
+  * @file           : app_version.h
+  * @brief          : Handle the software version in source code
   * @author         : <date>
   * @date           : <yyyy/MM/dd>
   ******************************************************************************
@@ -31,6 +31,8 @@ extern "C" {
 #define cu8LIB_VERSION_MINOR (uint8_t)0
 #define cu8LIB_VERSION_PATCH (uint8_t)0
 
+#define csLIB_VERSION_GIT_HASH "823e838"
+
 #define csLIB_VERSION_COMPILE_DATE __DATE__
 #define csLIB_VERSION_COMPILE_TIME __TIME__
 
@@ -43,6 +45,7 @@ typedef struct
   uint8_t u8VersionMajor;
   uint8_t u8VersionMinor;
   uint8_t u8VersionPatch;
+  char sGitHash[9];
 } sSoftwareMetadata_t;
 
 /* Exported macro ------------------------------------------------------------*/
