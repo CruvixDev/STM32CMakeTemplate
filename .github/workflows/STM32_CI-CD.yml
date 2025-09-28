@@ -19,8 +19,6 @@ jobs:
     # 2️⃣ Configure the CMake project
     - name: Configure STM32 project
       run: |
-        mkdir -p build
-        cd build
         cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./cmake/gcc-arm-none-eabi.cmake -S . -B ./build/debug -G Ninja
 
     # 3️⃣ Compile the project
