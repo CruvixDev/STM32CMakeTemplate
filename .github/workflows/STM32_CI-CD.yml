@@ -16,32 +16,19 @@ jobs:
     # 1️⃣ Get the code
     - uses: actions/checkout@v4
 
-    # 2️⃣ Install necessary dependencies
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        # Download arm-none-gcc toolchain
-        sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi make
-        # Download CMake
-        sudo apt-get install -y cmake
-        cmake --version
-        # Download Ruby to execute Ceedling unit tests
-        sudo apt-get install -y ruby-full
-        gem install ceedling
-
-    # 3️⃣ Configure the CMake project
+    # 2️⃣ Configure the CMake project
     - name: Configure STM32 project
       run: |
         mkdir -p build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./cmake/gcc-arm-none-eabi.cmake -S . -B ./build/debug -G Ninja
 
-    # 4️⃣ Compile the project
+    # 3️⃣ Compile the project
     - name: Build firmware
       run: |
         cmake --build ./build/debug --target all --
 
-    # 5️⃣ Run Ceedling tests via CTest
+    # 4️⃣ Run Ceedling tests via CTest
     - name: Run Ceedling tests
       run: |
         cd build/debug
