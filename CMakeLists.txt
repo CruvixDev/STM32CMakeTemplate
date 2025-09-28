@@ -43,7 +43,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install-stm32-model.cmake)
 
 # CMake script to add project specific configuration
 # (sources, includes, symbols, linker script, options)
-include("cmake/project_configuration.cmake")
+include("cmake/project-configuration.cmake")
 
 # Link directories setup
 # Must be before executable is added
