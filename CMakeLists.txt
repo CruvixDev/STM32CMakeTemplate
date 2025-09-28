@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.22)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 message("Build CMAKE_MODULE_PATH: " ${CMAKE_MODULE_PATH})
-include("cmake/gcc-arm-none-eabi.cmake")
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake)
 
 # Core project settings
 project(Template_STM32_CMake_Project VERSION 1.0.0)
@@ -15,7 +15,7 @@ set(APP_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 
 execute_process(
     COMMAND git rev-parse --short HEAD
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     OUTPUT_VARIABLE GIT_HASH
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
@@ -37,19 +37,9 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(STM32_MODEL "STM32H723xx")
 message("STM32 Model: " ${STM32_MODEL})
 
-string(TOLOWER ${STM32_MODEL} STM32_MODEL_LC)
-
-# Paths to startup file and linker script based on selected STM32 model
-set(STARTUP_FILE ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Source/Templates/gcc/startup_${STM32_MODEL_LC}.s)
-set(LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmsis-device-h7/Source/Templates/gcc/linker/${STM32_MODEL_LC}_FLASH.ld)
-
-# Check if the startup file and linker script exist
-if(EXISTS ${STARTUP_FILE})
-    file(COPY ${STARTUP_FILE} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/startup)
-    set(STARTUP_FILE ${LOCAL_STARTUP_DIR}/startup_${STM32_MODEL_LC}.s)
-else()
-    message(WARNING "No startup file found for" ${STM32_MODEL_LC})
-endif()
+# CMake script to install the STM32 model specific configuration
+# (startup file, system file, HAL/LL drivers, CMSIS files)
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/install-stm32-model.cmake)
 
 # CMake script to add project specific configuration
 # (sources, includes, symbols, linker script, options)
