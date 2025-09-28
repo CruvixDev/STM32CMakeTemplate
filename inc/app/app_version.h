@@ -24,6 +24,7 @@ extern "C" {
 #define cu8LIB_VERSION_PROJECT_NAME_MAX_LENGTH (uint8_t)32
 #define cu8LIB_VERSION_COMPILE_DATE_MAX_LENGTH (uint8_t)32
 #define cu8LIB_VERSION_COMPILE_TIME_MAX_LENGTH (uint8_t)32
+#define cu8LIB_VERSION_GIT_HASH_MAX_LENGTH     (uint8_t)9
 
 #define csLIB_VERSION_PROJECT_NAME "Template_STM32_CMake_Project"
 
@@ -45,7 +46,7 @@ typedef struct
   uint8_t u8VersionMajor;
   uint8_t u8VersionMinor;
   uint8_t u8VersionPatch;
-  char sGitHash[9];
+  char sGitHash[cu8LIB_VERSION_GIT_HASH_MAX_LENGTH];
 } sSoftwareMetadata_t;
 
 /* Exported macro ------------------------------------------------------------*/
