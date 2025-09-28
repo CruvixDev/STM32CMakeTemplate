@@ -94,14 +94,9 @@ add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
 
 enable_testing()
 
-include(ExternalProject)
-ExternalProject_Add(
-    STM32UnitTests
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests/unity_cmock
-    BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/STM32UnitTests
-    CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-    BUILD_ALWAYS 1
-    INSTALL_COMMAND ""
+# Add Ceedling tests
+add_test(
+  NAME ceedling_all
+  COMMAND ruby -S ceedling test:all
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/ceedling
 )
-
-add_test(NAME RunUnitTests COMMAND ${CMAKE_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/STM32UnitTests)

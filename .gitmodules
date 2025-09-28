@@ -7,9 +7,3 @@
 [submodule "submodules/CMSIS"]
 	path = submodules/CMSIS
 	url = https://github.com/ARM-software/CMSIS_6/
-[submodule "submodules/Unity"]
-	path = submodules/Unity
-	url = https://github.com/ThrowTheSwitch/Unity.git
-[submodule "submodules/CMock"]
-	path = submodules/CMock
-	url = https://github.com/ThrowTheSwitch/CMock.git
