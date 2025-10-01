@@ -12,7 +12,7 @@ set(cpu_PARAMS ${cpu_PARAMS}
 
 # Linker script
 set(linker_script_SRC ${linker_script_SRC}
-    ${CMAKE_CURRENT_SOURCE_DIR}/startup/stm32h723zgtx_FLASH.ld
+    ${CMAKE_CURRENT_SOURCE_DIR}/startup/stm32h7_FLASH_Example.ld
 )
 
 # Sources
