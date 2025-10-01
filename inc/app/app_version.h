@@ -32,7 +32,7 @@ extern "C" {
 #define cu8LIB_VERSION_MINOR (uint8_t)0
 #define cu8LIB_VERSION_PATCH (uint8_t)0
 
-#define csLIB_VERSION_GIT_HASH "18bec5d"
+#define csLIB_VERSION_GIT_HASH "ea072d1"
 
 #define csLIB_VERSION_COMPILE_DATE __DATE__
 #define csLIB_VERSION_COMPILE_TIME __TIME__
