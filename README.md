@@ -33,10 +33,9 @@ message("STM32 Model: " ${STM32_MODEL})
 
 There is still a lot of work to be done on this project, to encompass all STM32xx/H7 models.
 
-1. Startup assembly file is for STM32H723 model only, it must match the STM32 model selected.
-2. Linker script file is for STM32H723 model only, it must match the STM32 model selected.
-3. The CMake template is only for STM32H7 family, add support for others families (F1, F4, F7, G0, etc.).
-4. Create a super simple LED blinking example.
-5. Add test example showing mocking of Cube HAL / LL library.
-6. Create a documentation file explainging all the details to create this template from scratch.
-7. Create a Github Actions workflow to make a CI/CD to automate build, lint, tests, deploy, etc.
+1. Linker script file is for STM32H723 model only, it must match the STM32 model selected.
+2. The CMake template is only for STM32H7 family, add support for others families (F1, F4, F7, G0, etc.).
+3. Create a super simple LED blinking example.
+4. Add test example showing mocking of Cube HAL / LL library.
+5. Create a documentation file explainging all the details to create this template from scratch.
+6. Github Actions workflow now build and test, add deploy and lint phase
