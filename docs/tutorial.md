@@ -126,3 +126,74 @@ Create a `submodules` folder at the project root and add the required repositori
 
 - Adding submodules automatically generates a `.gitmodules` file at the root.  
 - Submodules ensure **consistent versions** across different machines and projects.  
+
+# 4️⃣ Add tests support
+
+To test the firmware code, an unit test framework must be added. Ceedling has been choosen, because it uses Unity and CMock from ThrowTheSwitch. Unity is a lightweight unit test framework, performant and almost used in embedded systems context. CMock allows to create mocks and stubs. Ceedling is a generator that combines CMock and Unity together, it generates mocks automatically and executes unit tests. Ceedling is based on Ruby language, so a Ruby interpreter is needed.
+
+1. In tests folder/ceedling, enter ceedling new STM32Tests, a YAML project file is created.
+
+2. In project.yml file, uncomment the line report_tests_log_factory to enable JUnit log output. So that, CTest can read tests results.
+
+3. Run ceedling module:create[Tests] to create tests files
+
+4. In the project.yml file, modify paths to sources and includes
+
+```yaml
+:paths:
+  :test:
+    - +:test/**
+    - -:test/support
+  :source:
+    - ../../src/**
+  :include:
+    - ../../inc/** # In simple projects, this entry often duplicates :source
+  :support:
+    - test/support
+  :libraries: []
+```
+
+5. I create 2 files: test_test1.c and test_test2.c with simple assert tests
+
+6. To run tests, run the command ceedling test:all.
+
+7. To run tests from CMake using CTest, add this line in the CMakeLists.txt file:
+
+```CMake
+enable_testing()
+
+# Add Ceedling tests
+add_test(
+    NAME ceedling_all
+    COMMAND ruby -S ceedling test:all
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/ceedling
+)
+```
+
+# 5️⃣ GitHub Actions Workflow
+
+**GitHub Actions** is the way to introduce **CI/CD practices** 🚀.  
+It allows automation of **build** and **test** processes on each push to the repository.
+
+The workflow uses a **custom Ubuntu Docker image** 🐧 with all necessary tools installed:  
+- Ruby interpreter 💎  
+- `arm-none-eabi-gcc` 🔧  
+- CMake 📦  
+- Ninja ⚡  
+
+👉 A `Dockerfile` has been created in the `.github/workflows` directory to build this image.  
+👉 The image has been pushed to your **GitHub account as a public package** for reuse.
+
+---
+
+## ⚙️ Workflow Steps
+
+The CI workflow is fairly simple:  
+1. ✅ **Checkout the repository**  
+2. ⚙️ **Configure the CMake project**  
+3. 🏗️ **Compile the firmware**  
+4. 🧪 **Run Ceedling unit tests**  
+
+---
+
+✨ With this setup, every push automatically triggers a full **build & test pipeline** on GitHub! 🎉
