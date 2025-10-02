@@ -1,5 +1,4 @@
 ---
-# Analyse statique sécurisée pour C embarqué (STM32)
 Checks: >
   clang-analyzer-*,
   bugprone-*,
@@ -11,12 +10,9 @@ Checks: >
 WarningsAsErrors: '*,-clang-diagnostic-unused-command-line-argument'
 HeaderFilterRegex: 'inc/(?!stm32h7xx_hal_conf\.h$)|src/'
 CheckOptions:
-  # Ignorer les enums pour les magic numbers
   - key: readability-magic-numbers.IgnoreEnums
     value: 1
-  # Ignorer les macros pour certains checks
   - key: cppcoreguidelines-avoid-magic-numbers.IgnoreMacros
     value: 1
-  # Encourager const sur les variables immuables
   - key: cppcoreguidelines-avoid-magic-numbers.IgnoreConstexpr
     value: 0
